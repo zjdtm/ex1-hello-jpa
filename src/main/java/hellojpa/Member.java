@@ -1,13 +1,14 @@
-package jpabook.jpashop.domain;
+package hellojpa;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 @Entity
-public class Member extends BaseEntity{
+public class Member{
 
     @Id
     @GeneratedValue
@@ -17,6 +18,11 @@ public class Member extends BaseEntity{
     @Column(name = "USERNAME")
     private String username;
 
+    // 기간 Period
+    @Embedded
+    private Period workPeriod;
+
+    // 주소 Address
     @Embedded
     private Address homeAddress;
 
@@ -49,6 +55,22 @@ public class Member extends BaseEntity{
         this.username = username;
     }
 
+    public Period getWorkPeriod() {
+        return workPeriod;
+    }
+
+    public void setWorkPeriod(Period workPeriod) {
+        this.workPeriod = workPeriod;
+    }
+
+    public Address getHomeAddress() {
+        return homeAddress;
+    }
+
+    public void setHomeAddress(Address homeAddress) {
+        this.homeAddress = homeAddress;
+    }
+
     public Set<String> getFavoriteFoods() {
         return favoriteFoods;
     }
@@ -63,13 +85,5 @@ public class Member extends BaseEntity{
 
     public void setAddressHistory(List<Address> addressHistory) {
         this.addressHistory = addressHistory;
-    }
-
-    public Address getHomeAddress() {
-        return homeAddress;
-    }
-
-    public void setHomeAddress(Address homeAddress) {
-        this.homeAddress = homeAddress;
     }
 }

@@ -1,13 +1,18 @@
-package jpabook.jpashop.domain;
+package hellojpa;
 
+import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
 @MappedSuperclass
-public abstract class BaseEntity {
+public class BaseEntity {
 
+    @Column(name = "INSERT_MEMBER")
     private String createdBy;
+
+    @Column(name = "UPDATE_MEMBER")
     private LocalDateTime createdDate;
+
     private String lastModifiedBy;
     private LocalDateTime lastModifiedDate;
 
