@@ -18,16 +18,11 @@ public class Member{
     @Column(name = "USERNAME")
     private String username;
 
-    // 기간 Period
-    @Embedded
-    private Period workPeriod;
-
-    // 주소 Address
     @Embedded
     private Address homeAddress;
 
     @ElementCollection
-    @CollectionTable(name = "FAVORITE_FOOD", joinColumns =
+    @CollectionTable(name = "FAVORITE_FOODS", joinColumns =
         @JoinColumn(name = "MEMBER_ID")
     )
     @Column(name = "FOOD_NAME")
@@ -55,35 +50,11 @@ public class Member{
         this.username = username;
     }
 
-    public Period getWorkPeriod() {
-        return workPeriod;
-    }
-
-    public void setWorkPeriod(Period workPeriod) {
-        this.workPeriod = workPeriod;
-    }
-
     public Address getHomeAddress() {
         return homeAddress;
     }
 
     public void setHomeAddress(Address homeAddress) {
         this.homeAddress = homeAddress;
-    }
-
-    public Set<String> getFavoriteFoods() {
-        return favoriteFoods;
-    }
-
-    public void setFavoriteFoods(Set<String> favoriteFoods) {
-        this.favoriteFoods = favoriteFoods;
-    }
-
-    public List<Address> getAddressHistory() {
-        return addressHistory;
-    }
-
-    public void setAddressHistory(List<Address> addressHistory) {
-        this.addressHistory = addressHistory;
     }
 }

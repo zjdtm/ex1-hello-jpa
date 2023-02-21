@@ -5,14 +5,10 @@ import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
 @MappedSuperclass
-public class BaseEntity {
+public abstract class BaseEntity {
 
-    @Column(name = "INSERT_MEMBER")
     private String createdBy;
-
-    @Column(name = "UPDATE_MEMBER")
     private LocalDateTime createdDate;
-
     private String lastModifiedBy;
     private LocalDateTime lastModifiedDate;
 

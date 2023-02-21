@@ -8,6 +8,7 @@ public class Child {
     @Id
     @GeneratedValue
     private Long id;
+
     private String name;
 
     @ManyToOne

@@ -3,8 +3,7 @@ package hellojpa;
 import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-@DiscriminatorColumn
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Item {
 
     @Id
@@ -12,7 +11,6 @@ public abstract class Item {
     private Long id;
 
     private String name;
-
     private int price;
 
     public Long getId() {
